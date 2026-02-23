@@ -10,24 +10,24 @@ st.set_page_config(page_title="Diabetes Prediction - MSE Model", layout="wide")
 
 st.title("📊 Diabetes Progression Prediction using Linear Regression")
 
-# Load dataset
+
 diabetes = load_diabetes()
 X = diabetes.data
 y = diabetes.target
 
-# Train test split
+
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# Train model
+
 model = LinearRegression()
 model.fit(X_train, y_train)
 
-# Predictions
+
 y_pred = model.predict(X_test)
 
-# Metrics
+
 mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
@@ -42,7 +42,7 @@ with col2:
 
 st.divider()
 
-# Plot 1: True vs Predicted
+
 st.subheader("🔵 True vs Predicted Values")
 
 fig1, ax1 = plt.subplots()
@@ -60,7 +60,7 @@ ax1.grid(True)
 
 st.pyplot(fig1)
 
-# Plot 2: BMI vs Prediction
+
 st.subheader("🟢 BMI vs Predicted Progression")
 
 fig2, ax2 = plt.subplots()
